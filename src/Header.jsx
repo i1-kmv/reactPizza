@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "./assets/img/pizza-logo.svg";
+import {Button} from "./Button";
 
 
 export class Header extends React.Component {
@@ -12,6 +13,7 @@ export class Header extends React.Component {
                         <div>
                             <h1>React Pizza</h1>
                             <p>самая вкусная пицца во вселенной</p>
+                            <Button name={'hello'} outline/>
                         </div>
                     </div>
                     <div className="header__cart">
