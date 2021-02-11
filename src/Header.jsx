@@ -13,11 +13,13 @@ export class Header extends React.Component {
                         <div>
                             <h1>React Pizza</h1>
                             <p>самая вкусная пицца во вселенной</p>
-                            <Button name={'hello'} outline/>
+                            <Button onClick={() => {
+                                alert('123')
+                            }} outline>hello</Button>
                         </div>
                     </div>
                     <div className="header__cart">
-                        <a href="/cart.html" className="button button--cart">
+                        <Button  className="button button--cart">
                             <span>520 ₽</span>
                             <div className="button__delimiter"></div>
                             <svg
@@ -50,7 +52,7 @@ export class Header extends React.Component {
                                 />
                             </svg>
                             <span>3</span>
-                        </a>
+                        </Button>
                     </div>
                 </div>
             </div>

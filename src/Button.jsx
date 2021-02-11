@@ -2,12 +2,12 @@ import React from 'react'
 import classNames from 'classnames';
 
 
-export class Button extends React.Component {
-    render(props) {
-        return (
-            <button className={classNames('button', {
-                'button--outline': this.props.outline
-            })}>{this.props.name}</button>
-        )
-    }
+export const Button = ({onClick, className, outline, children}) => {
+    return (
+        <button onClick={onClick}
+                className={classNames('button', className, {
+            'button--outline': outline
+        })}>{children}</button>
+    )
+
 }
