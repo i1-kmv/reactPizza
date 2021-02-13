@@ -1,8 +1,13 @@
-import React from 'react';
-import {Header} from "./Header";
+import React, {useState} from 'react';
+import {Header} from "./components/Header";
+import {Categories} from "./components/Categories";
 
 
 function App() {
+
+    const [activeItem, setActiveItem] = useState(0)
+    console.log(activeItem)
+
     return (
         <>
             <div className="wrapper">
@@ -10,16 +15,9 @@ function App() {
                 <div className="content">
                     <div className="container">
                         <div className="content__top">
-                            <div className="categories">
-                                <ul>
-                                    <li className="active">Все</li>
-                                    <li>Мясные</li>
-                                    <li>Вегетарианская</li>
-                                    <li>Гриль</li>
-                                    <li>Острые</li>
-                                    <li>Закрытые</li>
-                                </ul>
-                            </div>
+                            <Categories setActiveItem = {(index) => setActiveItem(index)}
+                                        activeItem = {activeItem}
+                                        items={['Мясные', 'Вегетарианские', 'Гриль', 'Острые', 'Закрытые']}/>
                             <div className="sort">
                                 <div className="sort__label">
                                     <svg
