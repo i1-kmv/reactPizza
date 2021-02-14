@@ -17,7 +17,7 @@ function App() {
                         <div className="content__top">
                             <Categories setActiveItem = {(index) => setActiveItem(index)}
                                         activeItem = {activeItem}
-                                        items={['Мясные', 'Вегетарианские', 'Гриль', 'Острые', 'Закрытые']}/>
+                                        items={['Все','Мясные', 'Вегетарианские', 'Гриль', 'Острые', 'Закрытые']}/>
                             <div className="sort">
                                 <div className="sort__label">
                                     <svg
