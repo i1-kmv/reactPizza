@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './scss/app.scss';
 import App from './App';
+import {BrowserRouter, Route} from "react-router-dom";
 
 
 ReactDOM.render(
-    <App />,
-  document.getElementById('root')
+    <BrowserRouter>
+      <App/>
+    </BrowserRouter>
+    ,document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
