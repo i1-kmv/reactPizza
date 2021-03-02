@@ -1,7 +1,20 @@
-import React from 'react'
+import React, {useState} from 'react'
+import PropTypes from "proptypes";
+import classNames from 'classnames'
 
 
-export const PizzaBlock = ({name, imageUrl}) => {
+export const PizzaBlock = ({name, imageUrl, price, types, sizes}) => {
+
+    const availableSizes = [26, 30, 40]
+    const typeNames = ['тонкое', 'традиционное']
+    const [activeType, setActiveType] = useState(types[0])
+    const [activeSize, setActiveSize] = useState(sizes[0])
+    const onSelectType = (index) => {
+        setActiveType(index)
+    }
+    const onSelectSize = (index) => {
+        setActiveSize(index)
+    }
 
     return (
         <div className="pizza-block">
@@ -13,18 +26,36 @@ export const PizzaBlock = ({name, imageUrl}) => {
             <h4 className="pizza-block__title">{name}</h4>
             <div className="pizza-block__selector">
                 <ul>
-                    <li className="active">тонкое</li>
-                    <li>традиционное</li>
+                    {typeNames.map((type, index) =>(
+                        <li
+                            key={type}
+                            className={classNames({
+                                'active': activeType === index,
+                                'disabled': !types.includes(index)
+                            })}
+                            onClick={() => onSelectType(index)}
+                        >
+                            {type}
+                        </li>
+                    ))}
                 </ul>
                 <ul>
-                    <li className="active">26 см.
-                    </li>
-                    <li>30 см.</li>
-                    <li>40 см.</li>
+                    {availableSizes.map((size, index) =>(
+                        <li
+                            key={size}
+                            className={classNames({
+                                'active': activeSize === index,
+                                'disabled': !sizes.includes(size)
+                            })}
+                            onClick={() => onSelectSize(index)}
+                        >
+                            {size} см.
+                        </li>
+                    ))}
                 </ul>
             </div>
             <div className="pizza-block__bottom">
-                <div className="pizza-block__price">от 395 ₽</div>
+                <div className="pizza-block__price">от {price} ₽</div>
                 <div className="button button--outline button--add">
                     <svg
                         width="12"
